@@ -1,24 +1,19 @@
-* Diode I-V Characteristic Sweep
-* Forward and reverse bias sweep
 .include spice_models/D_1N4148.mod
 
-V1 anode 0 DC 0       ; Voltage source at anode (cathode tied to GND)
-D1 anode 0 D1N4148    ; 1N4148 signal diode
+V1 1 0 DC 0
+D1 1 2 D1N4148
 
 
-* .model D1N4148 D(
-* +  IS=2.52e-9
-* +  N=1.752
-* +  BV=100
-* +  IBV=100e-6
-* +  RS=0.568
-* +  CJO=4e-12
-* +  M=0.4
-* +  TT=20e-9
-* +  VJ=0.6
-* )
+* Trying to plot the current through R1 has a quirk
+*   > This is a known ngspice quirk — i(R1) doesn't always work for resistors. 
+* The workaround is to add a 0V voltage source in series with the resistor, 
+* and measure the current through that.
+Vmeas 2 3 DC 0    ; 0V source = short circuit, just measures current
 
-.dc V1 -2 1 0.01      ; Sweep from -2V to +1V in 10mV steps
+
+R1 3 0 1k
+
+.dc V1 -2 2 0.01      ; Sweep from -2V to +1V in 10mV steps
 
 
 
@@ -27,7 +22,7 @@ D1 anode 0 D1N4148    ; 1N4148 signal diode
 .control
 run
 
-plot v(anode), 
+plot i(Vmeas)
 
 .endc
 
