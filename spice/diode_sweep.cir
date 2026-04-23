@@ -13,7 +13,7 @@ Vmeas 2 3 DC 0    ; 0V source = short circuit, just measures current
 
 R1 3 0 1k
 
-.dc V1 -2 2 0.01      ; Sweep from -2V to +1V in 10mV steps
+.dc V1 -2 10 0.01      ; Sweep from -2V to +1V in 10mV steps
 
 
 
