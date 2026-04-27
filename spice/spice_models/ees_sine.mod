@@ -43,4 +43,4 @@
 .model ees_sine sine(
 + cntl_array=[-1 0 5 6]
 + freq_array=[10 10 100 100] 
-+ out_low=0.0 out_high=5.0)
++ out_low=-2.5 out_high=2.5)
