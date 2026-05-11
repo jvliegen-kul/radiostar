@@ -55,6 +55,16 @@ Let's go for the Colpitts ([link](https://www.electronics-tutorials.ws/oscillato
 
 
 
+** Ter info
+
+golflengte lamba = c / f= 300'000 km/s / 10800 1/s = 27'777 m
+Dus antenne moet lambda/2 = 13'888 m
+
+300000000 / 40690000 =  7.372 m
+Dus antenne moet lambda/2 = 3.6m 
+Dus antenne moet lambda/12 = 0.614m
+
+* **Q** Monopool of dipool?
 
 
 ## Receiver
